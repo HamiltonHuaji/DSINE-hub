@@ -65,7 +65,7 @@ def get_intrins_from_fov(new_fov, H, W, device):
 
 class Predictor:
     def __init__(self, model) -> None:
-        from models.dsine import DSINE
+        from dsine.models.dsine import DSINE
         self.device = torch.device('cuda')
         self.model = model
         self.transform = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
@@ -102,7 +102,7 @@ class Predictor:
         return self.infer_tensor(img)
 
 def DSINE(local_file_path: Optional[str] = None):
-    from models import dsine
+    from dsine.models import dsine
 
     state_dict = _load_state_dict(local_file_path)
     model = dsine.DSINE()

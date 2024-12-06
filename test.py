@@ -67,7 +67,7 @@ if __name__ == '__main__':
     # define model
     device = torch.device('cuda')
 
-    from models.dsine import DSINE
+    from dsine.models.dsine import DSINE
     model = DSINE().to(device)
     model.pixel_coords = model.pixel_coords.to(device)
     model = utils.load_checkpoint('./checkpoints/%s.pt' % args.ckpt, model)
