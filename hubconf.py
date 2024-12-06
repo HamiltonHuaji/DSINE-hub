@@ -86,6 +86,8 @@ class Predictor:
 
         if intrins is None:
             intrins = get_intrins_from_fov(new_fov=60.0, H=orig_H, W=orig_W, device=self.device).unsqueeze(0)
+        else:
+            intrins = intrins.clone()
         
         intrins[:, 0, 2] += l
         intrins[:, 1, 2] += t
